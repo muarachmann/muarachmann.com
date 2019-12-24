@@ -1,0 +1,9 @@
+runtime: go112
+
+handlers:
+# Configure App Engine to serve any static assets.
+- url: /public
+  static_dir: public
+
+env_variables:
+  APP_NAME: Mua Rachmann
