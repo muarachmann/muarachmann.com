@@ -1,5 +1,6 @@
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: [app", "deploy"]
+- name: 'gcr.io/cloud-builders/go'
+  args: ['install', '.']
 
 timeout: "1600s"
+
