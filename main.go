@@ -2,16 +2,19 @@ package main
 
 import (
 	"fmt"
-	"html/template"
 	"log"
 	"net/http"
 	"os"
 
 	// routing
 	"github.com/gorilla/mux"
+	"github.com/muarachmann/muarachmann.com/app/controllers"
 )
 
-var indexTmpl = template.Must(template.ParseFiles("templates/index.html"))
+const (
+	STATIC_DIR = "/public/"
+	PORT       = "3000"
+)
 
 // Get default port
 func getPort() string {
@@ -19,7 +22,7 @@ func getPort() string {
 	if port != "" {
 		return ":" + port
 	}
-	return ":3000"
+	return ":" + PORT
 }
 
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
@@ -32,19 +35,17 @@ func aboutHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, site_title)
 }
 
-func indexHandler(w http.ResponseWriter, r *http.Request) {
-	indexTmpl.Execute(w, nil)
-}
-
 func main() {
 
 	muxRouter := mux.NewRouter()
 
-	fs := http.FileServer(http.Dir("public"))
-	muxRouter.Handle("/public/", http.StripPrefix("/public/", fs))
+	muxRouter.
+		PathPrefix(STATIC_DIR).
+		Handler(http.StripPrefix(STATIC_DIR, http.FileServer(http.Dir("."+STATIC_DIR))))
 
-	muxRouter.HandleFunc("/", indexHandler)
-	muxRouter.HandleFunc("/about", aboutHandler)
+	muxRouter.HandleFunc("/", controllers.GetHomePage)
+	muxRouter.HandleFunc("/about", controllers.GetAboutPage)
+	muxRouter.HandleFunc("/contact", controllers.GetContactPage)
 
 	log.Fatal(http.ListenAndServe(getPort(), muxRouter))
 
