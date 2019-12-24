@@ -7,3 +7,4 @@ handlers:
 
 env_variables:
   APP_NAME: Mua Rachmann
+  PORT: 8080

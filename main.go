@@ -2,14 +2,27 @@ package main
 
 import (
 	"fmt"
+	"html/template"
+	"log"
 	"net/http"
 	"os"
 
-	// router
+	// routing
 	"github.com/gorilla/mux"
 )
 
-func handlerFucn(w http.ResponseWriter, r *http.Request) {
+var indexTmpl = template.Must(template.ParseFiles("templates/index.html"))
+
+// Get default port
+func getPort() string {
+	port := os.Getenv("PORT")
+	if port != "" {
+		return ":" + port
+	}
+	return ":3000"
+}
+
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
 	// variable := mux.Vars(r)
 	// query := variable["q"]
 	site_title := "<h1>Welcome to my website</h1>"
@@ -19,10 +32,20 @@ func handlerFucn(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, site_title)
 }
 
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	indexTmpl.Execute(w, nil)
+}
+
 func main() {
 
-	router := mux.NewRouter()
-	router.HandleFunc("/", handlerFucn)
-	http.ListenAndServe(":8080", router)
+	muxRouter := mux.NewRouter()
+
+	fs := http.FileServer(http.Dir("public"))
+	muxRouter.Handle("/public/", http.StripPrefix("/public/", fs))
+
+	muxRouter.HandleFunc("/", indexHandler)
+	muxRouter.HandleFunc("/about", aboutHandler)
+
+	log.Fatal(http.ListenAndServe(getPort(), muxRouter))
 
 }
