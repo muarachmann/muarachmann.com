@@ -1,0 +1,37 @@
+{{ define "content" }}
+
+
+<aside id="colorlib-hero" class="js-fullheight">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="heading-meta pull-right"><a href="/">Home</a> <i class="fa fa-angle-right"></i> About</span>
+                <p class="clearfix"></p>
+            </div>
+            <div class="col-md-12">
+                <img src="/public/images/404.png" class="img-responsive" style="margin-left: auto;margin-right: auto;">
+            </div>
+            <p class="clearfix"></p>
+            <p class="clearfix"></p>
+            <p class="clearfix"></p>
+            <p class="clearfix"></p>
+
+            <div class="col-md-10">
+                <form action="/search" method="GET" style="margin-left: 10%;margin-right: auto;">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search this website ...">
+                            <div class="input-group-btn">
+                              <button class="btn btn-default" type="submit">
+                                <i class="fa fa-search"></i>
+                              </button>
+                            </div>
+                          </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</aside>
+
+{{ end }}

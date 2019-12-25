@@ -2,6 +2,10 @@
 	
 	'use strict';
 
+	$('.blog-grid').masonry({
+		// options
+		itemSelector: '.blog-grid-item',
+	  });
 
 
 	var isMobile = {
