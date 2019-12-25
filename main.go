@@ -38,6 +38,7 @@ func aboutHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 
 	muxRouter := mux.NewRouter()
+	muxRouter.NotFoundHandler = http.HandlerFunc(controllers.Custom404Handler)
 
 	muxRouter.
 		PathPrefix(STATIC_DIR).
@@ -46,6 +47,8 @@ func main() {
 	muxRouter.HandleFunc("/", controllers.GetHomePage)
 	muxRouter.HandleFunc("/about", controllers.GetAboutPage)
 	muxRouter.HandleFunc("/contact", controllers.GetContactPage)
+	muxRouter.HandleFunc("/experience", controllers.GetExperiencePage)
+	muxRouter.HandleFunc("/blog", controllers.GetBlogPage)
 
 	log.Fatal(http.ListenAndServe(getPort(), muxRouter))
 

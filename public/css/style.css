@@ -1,7 +1,7 @@
 @font-face {
-    font-family: icomoon;
-    src: url(../fonts/icomoon/icomoon.eot);
-    src: url(../fonts/icomoon/icomoon.eot) format("embedded-opentype"), url(../fonts/icomoon/icomoon.ttf) format("truetype"), url(../fonts/icomoon/icomoon.woff) format("woff"), url(../fonts/icomoon/icomoon.svg) format("svg");
+    font-family: fontawesome;
+    src: url(/public/webfonts/fa-brands-400.eot);
+    src: url(/public/webfonts/fa-brands-400.eot) format("embedded-opentype"), url(/public/webfonts/fa-brands-400.ttf) format("truetype"), url(/public/webfonts/fa-brands-400.woff) format("woff"), url(/public/webfonts/fa-brands-400.svg) format("svg");
     font-weight: 400;
     font-style: normal
 }
@@ -619,8 +619,8 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 }
 
 .panel-heading a:after {
-    font-family: icomoon;
-    content: "\ea0e";
+    font-family: fontawesome;
+    content: "🤗";
     position: absolute;
     right: 20px;
     font-size: 20px;
@@ -631,7 +631,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 }
 
 .panel-heading a.collapsed:after {
-    content: "\ea1c"
+    content: "🤗"
 }
 
 .panel-heading a.collapsed {
@@ -650,8 +650,13 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     width: 100%;
     float: left;
     background: #fff;
-    margin-bottom: 3em
+    margin-bottom: 3em;
+    background: black;
+    padding: 10px;
+    color: white;
+    border: 1px solid black;
 }
+
 
 @media screen and (max-width: 768px) {
     .blog-entry {
@@ -661,6 +666,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 
 .blog-entry .blog-img {
     width: 100%;
+    height: 250px;
     float: left;
     overflow: hidden;
     position: relative;
@@ -686,12 +692,13 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     margin-bottom: 25px;
     line-height: auto;
     font-weight: 500;
+    color: darkgoldenrod;
     text-transform: uppercase;
     letter-spacing: 1px
 }
 
 .blog-entry .desc h3 a {
-    color: #000;
+    color: darkgoldenrod;
     text-decoration: none
 }
 
@@ -699,7 +706,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     display: block;
     margin-bottom: 20px;
     font-size: 14px;
-    color: rgba(0, 0, 0, .5) !important
+    color: rgba(255, 255, 255, .5) !important
 }
 
 .blog-entry .desc span small i {
@@ -710,8 +717,14 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #000
+    color: whitesmoke;
+    border: 1px solid white;
 }
+
+.blog-entry .desc .lead:hover {
+    border: 1px solid darkgoldenrod;
+}
+
 
 .blog-entry:hover .blog-img img {
     -webkit-transform: scale(1.1);
@@ -978,7 +991,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     text-align: left;
     width: 100%;
     float: left;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     position: relative
 }
 
@@ -986,28 +999,28 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     display: table;
     text-align: center;
-    background: rgba(0, 0, 0, .03);
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    border-radius: 2px
+    background: rgba(0, 0, 0, 0.9);
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
 }
 
 .colorlib-feature .colorlib-icon i {
     display: table-cell;
     vertical-align: middle;
-    color: darkgoldenrod;
-    font-size: 40px;
-    height: 100px
+    color: whitesmoke;
+    font-size: 35px;
+    height: 80px
 }
 
 @media screen and (max-width: 1200px) {
     .colorlib-feature .colorlib-icon i {
-        font-size: 40px
+        font-size: 35px
     }
 }
 
@@ -1035,7 +1048,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 }
 
 .colorlib-feature.colorlib-feature-sm .colorlib-icon i {
-    color: darkgoldenrod;
+    color: whi;
     font-size: 40px
 }
 
@@ -1064,6 +1077,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     position: relative
 }
 
+
 .pagination {
     padding: 0
 }
@@ -1073,20 +1087,26 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 }
 
 .pagination li a {
-    color: #000;
-    background: 0 0;
+    color: whitesmoke;
+    background: #000;
+    width: 40px;
+    height: 40px;
     margin: 2px;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    border-radius: 0
+    border: 1px solid black;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    -webkit-border-radius: 80%;
+    -moz-border-radius: 80%;
+    -ms-border-radius: 80%;
+    border-radius: 80%;
 }
 
 .pagination li a:first-child {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    border-radius: 2px
+    -webkit-border-radius: 80%;
+    -moz-border-radius: 80%;
+    -ms-border-radius: 80%;
+    border-radius: 80%
 }
 
 .pagination li a:hover, .pagination li a:focus {
@@ -1479,6 +1499,11 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     margin-top: 10px
 }
 
+a.text-link {
+    padding-bottom: 2px;
+    border-bottom: 1px solid darkgoldenrod;
+}
+
 @media screen and (max-width: 992px) {
     .sticky-parent {
         clear: both;
@@ -1486,4 +1511,47 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
         float: left;
         padding-top: 30px
     }
+}
+
+a.resume-btn{
+    border:  1px solid whitesmoke;
+    color: whitesmoke;
+}
+
+a.resume-btn:hover{
+    border:  1px solid whitesmoke;
+    color: darkgoldenrod !important;
+}
+
+/******************* Timeline *****************/
+.main-timeline{overflow:hidden;position:relative}
+.main-timeline:after,.main-timeline:before{content:"";display:block;width:100%;clear:both}
+.main-timeline:before{content:"";width:3px;height:100%;background:#d6d5d5;position:absolute;top:30px;left:50%}
+.main-timeline .timeline{width:50%;float:left;padding-right:30px;position:relative}
+.main-timeline .timeline-icon{width:32px;height:32px;border-radius:50%;background:#fff;border:3px solid #333;position:absolute;top:5.5%;right:-17.5px}
+.main-timeline .year{display:block;padding:10px;margin:0;font-size:20px;color:#fff;border-radius:0 50px 50px 0;background:#000;text-align:center;position:relative}
+.main-timeline .year:before{content:"";border-top:35px solid #d58512;border-left:35px solid transparent;position:absolute;bottom:-35px;left:0}
+.main-timeline .timeline-content{padding:30px 20px;margin:0 45px 0 35px;background:#f2f2f2}
+.main-timeline .title{font-size:19px;font-weight:700;color:#504f54;margin:0 0 10px}
+.main-timeline .description{font-size:14px;color:#7d7b7b;margin:0}
+.main-timeline .timeline:nth-child(2n){padding:0 0 0 30px}
+.main-timeline .timeline:nth-child(2n) .timeline-icon{right:auto;left:-14.5px}
+.main-timeline .timeline:nth-child(2n) .year{border-radius:50px 0 0 50px;background:#d58512}
+.main-timeline .timeline:nth-child(2n) .year:before{border-left:none;border-right:35px solid transparent;left:auto;right:0}
+.main-timeline .timeline:nth-child(2n) .timeline-content{text-align:right;margin:0 35px 0 45px}
+.main-timeline .timeline:nth-child(2){margin-top:170px}
+.main-timeline .timeline:nth-child(odd){margin:-175px 0 0}
+.main-timeline .timeline:nth-child(even){margin-bottom:80px}
+.main-timeline .timeline:first-child,.main-timeline .timeline:last-child:nth-child(even){margin:0}
+.main-timeline .timeline:nth-child(2n) .timeline-icon{border-color:#d58512}
+.main-timeline .timeline:nth-child(2n) .year:before{border-top-color:#000}
+@media only screen and (max-width:767px){.main-timeline{overflow:visible}
+    .main-timeline:before{top:0;left:0}
+    .main-timeline .timeline:nth-child(2),.main-timeline .timeline:nth-child(even),.main-timeline .timeline:nth-child(odd){margin:0}
+    .main-timeline .timeline{width:100%;float:none;padding:0 0 0 30px;margin-bottom:20px!important}
+    .main-timeline .timeline:last-child{margin:0!important}
+    .main-timeline .timeline-icon{right:auto;left:-14.5px}
+    .main-timeline .year{border-radius:50px 0 0 50px}
+    .main-timeline .year:before{border-left:none;border-right:35px solid transparent;left:auto;right:0}
+    .main-timeline .timeline-content{margin:0 35px 0 45px}
 }
