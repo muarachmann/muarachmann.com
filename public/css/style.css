@@ -391,7 +391,8 @@ code.slogan {
     vertical-align: middle;
     min-height: 700px;
     padding: 2em;
-    position: relative
+    position: relative;
+    background: transparent;
 }
 
 #colorlib-hero .flexslider .slider-text > .slider-text-inner .desc {
@@ -399,7 +400,7 @@ code.slogan {
     bottom: 15px;
     left: 0;
     padding: 30px;
-    background: #fff
+    background: transparent;
 }
 
 @media screen and (max-width: 768px) {
@@ -999,8 +1000,8 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     position: absolute;
     top: 0;
     left: 0;
-    width: 80px;
-    height: 80px;
+    width: 20px !important;
+    height: 20px !important;
     display: table;
     text-align: center;
     background: rgba(0, 0, 0, 0.9);
@@ -1014,8 +1015,8 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
     display: table-cell;
     vertical-align: middle;
     color: whitesmoke;
-    font-size: 35px;
-    height: 80px
+    font-size: 25px;
+    height: 50px
 }
 
 @media screen and (max-width: 1200px) {
@@ -1048,8 +1049,8 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 }
 
 .colorlib-feature.colorlib-feature-sm .colorlib-icon i {
-    color: whi;
-    font-size: 40px
+    color: white;
+    font-size: 20px
 }
 
 @media screen and (max-width: 1200px) {
