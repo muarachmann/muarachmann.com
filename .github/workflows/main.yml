@@ -14,7 +14,7 @@ jobs:
   go-tests:
     strategy:
       matrix:
-        go-version: [1.12]
+        go-version: [ '1.13', '1.12' ]
         platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
 
@@ -40,13 +40,6 @@ jobs:
       with:
         fetch-depth: 1
         path: /home/runner/work/muarachmann.com/muarachmann.com
-
-    - name: Install go-dep
-      run: sudo apt-get install go-dep
-
-    - name: Installing dependencies
-      run: dep init
-      if: job.steps.debug_id.status == failure()
 
     - name: Test & Run go project
       run: go run main.go
