@@ -24,17 +24,32 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
 
-    - name: setup env
-      run: |
-        echo "::set-env name=GOPATH::$(go env GOPATH)"
-        echo "::add-path::$(go env GOPATH)/bin"
-      shell: bash
-      
-    - name: Checkout cpde
-      uses: actions/checkout@v2
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v1
       with:
         fetch-depth: 1
-        path: src/github.com/${{ github.repository }}
+        path: /home/runner/work/muarachmann.com/muarachmann.com
+
+    - name: Debug
+      run: |
+        pwd
+        echo ${HOME}
+        echo ${GITHUB_WORKSPACE}
+        echo ${GOPATH}
+        echo ${GOROOT}
+      env:
+        GOPATH: /home/runner/work/muarachmann.com/muarachmann.com/go
+
+    - name: Test
+      run: |
+        go get -u golang.org/x/tools/cmd/cover
+        go get -u golang.org/x/net/context
+        go get -u golang.org/x/net/context/ctxhttp
+        go get -u github.com/golang/protobuf/proto
+        go get -u github.com/golang/protobuf/protoc-gen-go
+        go test -cover $(go list ./... | grep -v /vendor/)
+      env:
+        GOPATH: /home/runner/work/muarachmann.com/muarachmann.com/go
     
     - name: Install go dependency
       run: sudo apt-get install go-dep
