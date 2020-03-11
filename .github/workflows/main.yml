@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Run/Deploy website
+name: Run/Deploy website (muarachmann.com)
 
 # Controls when the action will run. Triggers the workflow on push or pull request 
 # events but only for the master branch
@@ -11,22 +11,27 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  Mua Rachmann Test:
     strategy:
       matrix:
-        go-version: [1.12.x, 1.13.x]
-        platform: [ubuntu-latest, macos-latest, windows-latest]
+        go-version: [1.12]
+        platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
+
     steps:
     - name: Install Go
       uses: actions/setup-go@v1
       with:
         go-version: ${{ matrix.go-version }}
+
     - name: Checkout code
       uses: actions/checkout@v2
+
     - name: Install deps
-      run: bre install deps
+      run: brew install deps
+
     - name: Installing dependencies
       run: deps init
-    - name: Test
+
+    - name: Test & Run go project
       run: go run main.go
