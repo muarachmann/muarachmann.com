@@ -24,13 +24,8 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
 
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-        path: /home/runner/work/muarachmann.com/muarachmann.com
-
     - name: Debug
+      id: 2
       run: |
         pwd
         echo ${HOME}
@@ -40,11 +35,18 @@ jobs:
       env:
         GOPATH: /home/runner/work/muarachmann.com/muarachmann.com/go
 
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+        path: /home/runner/work/muarachmann.com/muarachmann.com
+
     - name: Install go-dep
       run: sudo apt-get install go-dep
 
     - name: Installing dependencies
       run: dep init
+      if: job.steps.2.status == failure()
 
     - name: Test & Run go project
       run: go run main.go
