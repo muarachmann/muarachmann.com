@@ -24,15 +24,18 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
 
-    - name: Checkout code
-      uses: actions/checkout@v2
-    
     - name: setup env
       run: |
         echo "::set-env name=GOPATH::$(go env GOPATH)"
         echo "::add-path::$(go env GOPATH)/bin"
       shell: bash
-
+      
+    - name: Checkout cpde
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+        path: src/github.com/${{ github.repository }}
+    
     - name: Install go dependency
       run: sudo apt-get install go-dep
 
