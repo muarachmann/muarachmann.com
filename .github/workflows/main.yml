@@ -31,7 +31,7 @@ jobs:
       run: sudo apt-get install go-dep
 
     - name: Installing dependencies
-      run: deps init
+      run: dep init
 
     - name: Test & Run go project
       run: go run main.go
