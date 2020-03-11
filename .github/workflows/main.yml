@@ -25,7 +25,7 @@ jobs:
         go-version: ${{ matrix.go-version }}
 
     - name: Debug
-      id: 2
+      id: debug_id
       run: |
         pwd
         echo ${HOME}
@@ -46,7 +46,7 @@ jobs:
 
     - name: Installing dependencies
       run: dep init
-      if: job.steps.2.status == failure()
+      if: job.steps.debug_id.status == failure()
 
     - name: Test & Run go project
       run: go run main.go
