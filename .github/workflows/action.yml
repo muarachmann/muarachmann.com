@@ -14,8 +14,8 @@ jobs:
   go-tests:
     strategy:
       matrix:
-        go-version: [ '1.13', '1.12' ]
-        platform: [ubuntu-latest]
+        go-version: [1.12]
+        platform: [macos-latest]
     runs-on: ${{ matrix.platform }}
 
     steps:
