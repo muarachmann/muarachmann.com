@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v1
       with:
         go-version: ${{ matrix.go-version }}
 
@@ -40,18 +40,7 @@ jobs:
       env:
         GOPATH: /home/runner/work/muarachmann.com/muarachmann.com/go
 
-    - name: Test
-      run: |
-        go get -u golang.org/x/tools/cmd/cover
-        go get -u golang.org/x/net/context
-        go get -u golang.org/x/net/context/ctxhttp
-        go get -u github.com/golang/protobuf/proto
-        go get -u github.com/golang/protobuf/protoc-gen-go
-        go test -cover $(go list ./... | grep -v /vendor/)
-      env:
-        GOPATH: /home/runner/work/muarachmann.com/muarachmann.com/go
-    
-    - name: Install go dependency
+    - name: Install go-dep
       run: sudo apt-get install go-dep
 
     - name: Installing dependencies
