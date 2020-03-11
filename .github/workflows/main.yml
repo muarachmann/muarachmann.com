@@ -27,8 +27,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install deps
-      run: brew install deps
+    - name: Install go dependency
+      run: sudo apt-get install go-dep
 
     - name: Installing dependencies
       run: deps init
